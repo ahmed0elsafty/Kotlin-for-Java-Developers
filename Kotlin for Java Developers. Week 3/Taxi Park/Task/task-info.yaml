@@ -32,56 +32,56 @@ files:
   visible: true
   placeholders:
   - offset: 132
+    length: 24
+    placeholder_text: TODO()
+    initial_state:
+      length: 6
+      offset: 132
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+  - offset: 321
     length: 6
     placeholder_text: TODO()
     initial_state:
       length: 6
-      offset: 136
+      offset: 307
     initialized_from_dependency: false
     selected: false
     status: Unchecked
-  - offset: 307
+  - offset: 496
     length: 6
     placeholder_text: TODO()
     initial_state:
       length: 6
-      offset: 311
+      offset: 486
     initialized_from_dependency: false
     selected: false
     status: Unchecked
-  - offset: 486
+  - offset: 648
     length: 6
     placeholder_text: TODO()
     initial_state:
       length: 6
-      offset: 490
+      offset: 642
     initialized_from_dependency: false
     selected: false
     status: Unchecked
-  - offset: 642
+  - offset: 931
     length: 6
     placeholder_text: TODO()
     initial_state:
       length: 6
-      offset: 646
+      offset: 925
     initialized_from_dependency: false
     selected: false
     status: Unchecked
-  - offset: 925
+  - offset: 1077
     length: 6
     placeholder_text: TODO()
     initial_state:
       length: 6
-      offset: 929
-    initialized_from_dependency: false
-    selected: false
-    status: Unchecked
-  - offset: 1071
-    length: 6
-    placeholder_text: TODO()
-    initial_state:
-      length: 6
-      offset: 1075
+      offset: 1071
     initialized_from_dependency: false
     selected: false
     status: Unchecked

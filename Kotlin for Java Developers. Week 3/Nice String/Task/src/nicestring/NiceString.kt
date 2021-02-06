@@ -1,29 +1,13 @@
 package nicestring
 
 fun String.isNice(): Boolean {
-    var satistfied = 0
-    fun containAnySeq(): Boolean {
-        return this.contains("ba") || this.contains("bu") || this.contains("be")
-    }
 
-    fun containDoubles(): Boolean {
-        for ((i, _) in this.withIndex()) {
-            if (i == this.length - 1) break
-            if (this[i] == this[i + 1]) {
-                return true
-            } else {
-                continue
-            }
-        }
-        return false
-    }
+//    val noBadSubString = setOf("ba", "be", "bu").none { this.contains(it) }
+//    val hasDoubles = this.windowed(2).any{it[0]==it[1]}
+//    val hasDoubles = (0 until lastIndex).any { this[it] == this[it + 1] }
+    val hasThreeVowels = this.count { it in "aeiou" } >= 3
+    val hasDoubles = this.zipWithNext().any { it.first == it.second }
+    val noBadSubString = setOf("ba", "be", "bu").all { !this.contains(it) }
 
-    fun containThreeVowels(): Boolean {
-        val count = this.count { it in listOf('a', 'e', 'i', 'o', 'u') }
-        return count >= 3
-    }
-    if (!containAnySeq()) satistfied++
-    if (containDoubles()) satistfied++
-    if (containThreeVowels()) satistfied++
-    return satistfied >= 2
+    return listOf(hasDoubles, hasThreeVowels, noBadSubString).filter { it }.size >= 2
 }
