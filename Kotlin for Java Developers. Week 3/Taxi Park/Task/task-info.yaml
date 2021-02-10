@@ -31,8 +31,8 @@ files:
 - name: src/taxipark/TaxiParkTask.kt
   visible: true
   placeholders:
-  - offset: 132
-    length: 24
+  - offset: 133
+    length: 86
     placeholder_text: TODO()
     initial_state:
       length: 6
@@ -40,50 +40,50 @@ files:
     initialized_from_dependency: false
     selected: true
     status: Unchecked
-  - offset: 321
-    length: 6
+  - offset: 221
+    length: 346
     placeholder_text: TODO()
     initial_state:
       length: 6
       offset: 307
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
-  - offset: 496
-    length: 6
+  - offset: 874
+    length: 2
     placeholder_text: TODO()
     initial_state:
       length: 6
       offset: 486
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
-  - offset: 648
-    length: 6
+  - offset: 1020
+    length: 221
     placeholder_text: TODO()
     initial_state:
       length: 6
       offset: 642
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
-  - offset: 931
-    length: 6
+  - offset: 1934
+    length: 16
     placeholder_text: TODO()
     initial_state:
       length: 6
       offset: 925
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
-  - offset: 1077
-    length: 6
+  - offset: 2086
+    length: 520
     placeholder_text: TODO()
     initial_state:
       length: 6
       offset: 1071
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
   text: |-
     package taxipark
@@ -1465,4 +1465,8 @@ files:
   learner_created: false
 feedback_link: https://www.coursera.org/learn/kotlin-for-java-developers/programming/xTPZT/taxi-park/discussions
 status: Unchecked
+feedback:
+  message: <html>Submission successful, please <a href="https://www.coursera.org/learn/kotlin-for-java-developers/programming/xTPZT/taxi-park/submission">check
+    the status on Coursera</a></html>
+  time: Tue, 09 Feb 2021 19:05:33 UTC
 record: -1
