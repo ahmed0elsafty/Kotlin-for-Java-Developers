@@ -1,22 +1,25 @@
 package rationals
 
 import java.math.BigInteger
+import java.math.BigInteger.ONE
+import java.math.BigInteger.ZERO
 
 
-class Rational(n: BigInteger, d: BigInteger = BigInteger.ONE) : Comparable<Rational> {
+class Rational(n: BigInteger, d: BigInteger = ONE) : Comparable<Rational> {
     val numerator: BigInteger
     val denominator: BigInteger
 
     init {
+        require(d != ZERO) { "Denominator must be non-Zero" }
         val gcd = n.gcd(d)
         when {
-            n > BigInteger.ZERO && d < BigInteger.ZERO -> {
-                numerator = (n * -BigInteger.ONE) / gcd
-                denominator = (d * -BigInteger.ONE) / gcd
+            n > ZERO && d < ZERO -> {
+                numerator = (n * -ONE) / gcd
+                denominator = (d * -ONE) / gcd
             }
-            n < BigInteger.ZERO && d < BigInteger.ZERO -> {
-                numerator = (n * -BigInteger.ONE) / gcd
-                denominator = (d * -BigInteger.ONE) / gcd
+            n < ZERO && d < ZERO -> {
+                numerator = (n * -ONE) / gcd
+                denominator = (d * -ONE) / gcd
             }
             else -> {
                 numerator = n / gcd
@@ -27,7 +30,7 @@ class Rational(n: BigInteger, d: BigInteger = BigInteger.ONE) : Comparable<Ratio
 
     override fun toString(): String {
         return when (denominator) {
-            BigInteger.ONE -> "$numerator"
+            ONE -> "$numerator"
             else -> "$numerator/$denominator"
         }
     }
@@ -45,6 +48,7 @@ class Rational(n: BigInteger, d: BigInteger = BigInteger.ONE) : Comparable<Ratio
             else -> 0
         }
     }
+
     operator fun plus(other: Rational): Rational {
         val num = numerator * other.denominator + other.numerator * denominator
         val den = denominator * other.denominator
@@ -74,7 +78,7 @@ class Rational(n: BigInteger, d: BigInteger = BigInteger.ONE) : Comparable<Ratio
     }
 
     operator fun unaryMinus(): Rational {
-        return Rational(numerator * -BigInteger.ONE, denominator)
+        return Rational(numerator * -ONE, denominator)
     }
 
 
@@ -86,12 +90,17 @@ class Rational(n: BigInteger, d: BigInteger = BigInteger.ONE) : Comparable<Ratio
 
 }
 
-fun String.toRational(): Rational {
-    val rational = split("/")
-    return when {
-        rational.size == 1 -> Rational(rational[0].toBigInteger())
-        else -> Rational(rational[0].toBigInteger(), rational[1].toBigInteger())
+fun String.toRational(): Rational? {
+    fun String.toBigIntegerOrFail()=
+        toBigIntegerOrNull() ?: throw IllegalAccessException("Expecting Rational in the form of 'n/d' or 'n', was: '$this'")
+
+
+    if (!contains('/')) {
+        return toBigIntegerOrNull()?.let { Rational(it) }
     }
+    val (numer, denom) = split("/")
+    return Rational(numer.toBigIntegerOrFail() , denom.toBigIntegerOrFail())
+
 }
 
 infix fun Int.divBy(d: Int): Rational = Rational(toBigInteger(), d.toBigInteger())
@@ -122,6 +131,7 @@ fun main() {
     println((2 divBy 1).toString() == "2")
     println((-2 divBy 4).toString() == "-1/2")
     println("117/1098".toRational().toString() == "13/122")
+    println("117 / 1098".toRational().toString() == "13/122")
 
     val twoThirds = 2 divBy 3
     println(half < twoThirds)
@@ -134,6 +144,8 @@ fun main() {
         "912016490186296920119201192141970416029".toBigInteger() divBy
                 "1824032980372593840238402384283940832058".toBigInteger() == 1 divBy 2
     )
+    val withZeroDeno = 1 divBy 0
+    print(withZeroDeno)
 }
 
 

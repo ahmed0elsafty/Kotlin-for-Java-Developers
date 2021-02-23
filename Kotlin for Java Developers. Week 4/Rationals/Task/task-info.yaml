@@ -268,4 +268,8 @@ files:
   learner_created: false
 feedback_link: https://www.coursera.org/learn/kotlin-for-java-developers/programming/FNjea/rationals/discussions
 status: Unchecked
+feedback:
+  message: <html>Submission successful, please <a href="https://www.coursera.org/learn/kotlin-for-java-developers/programming/FNjea/rationals/submission">check
+    the status on Coursera</a></html>
+  time: Tue, 23 Feb 2021 20:56:50 UTC
 record: -1
